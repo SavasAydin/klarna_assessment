@@ -9,5 +9,5 @@ to_ordinal(2) ->
     "2nd";
 to_ordinal(3) ->
     "3rd";
-to_ordinal(4) ->
-    "4th".
+to_ordinal(N) ->
+    integer_to_list(N) ++ "th".

@@ -21,3 +21,6 @@ convert_4_to_4th_test() ->
     Res = ordinal_numbers:to_ordinal(4),
     ?assertEqual("4th", Res).
 
+convert_15_to_15th_test() ->
+    Res = ordinal_numbers:to_ordinal(15),
+    ?assertEqual("15th", Res).    
