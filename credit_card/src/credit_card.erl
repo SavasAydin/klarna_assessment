@@ -6,4 +6,4 @@ maskify(CreditCard) when length(CreditCard) < 6 ->
 maskify([H|CreditCard]) ->
     SplitAt = length(CreditCard) - 4,
     {ToMask, NotToMask} = lists:split(SplitAt, CreditCard),
-    [H] ++ [ $# || _ <- ToMask ] ++ NotToMask.
+    [H | [ $# || _ <- ToMask ] ++ NotToMask].
