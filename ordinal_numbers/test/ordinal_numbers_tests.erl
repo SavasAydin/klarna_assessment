@@ -12,3 +12,7 @@ convert_1_to_1st_test() ->
 convert_2_to_2st_test() ->
     Res = ordinal_numbers:to_ordinal(2),
     ?assertEqual("2nd", Res).
+
+convert_3_to_3rd_test() ->
+    Res = ordinal_numbers:to_ordinal(3),
+    ?assertEqual("3rd", Res).

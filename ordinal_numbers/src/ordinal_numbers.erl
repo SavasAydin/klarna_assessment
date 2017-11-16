@@ -6,4 +6,6 @@ to_ordinal(0) ->
 to_ordinal(1) ->
     "1st";
 to_ordinal(2) ->
-    "2nd".
+    "2nd";
+to_ordinal(3) ->
+    "3rd".
