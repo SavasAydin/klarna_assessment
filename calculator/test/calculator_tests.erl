@@ -12,3 +12,7 @@ should_return_last_number_if_no_operations_found_test() ->
 should_return_last_float_if_no_operations_found_test() ->
     Res = calculator:calculate("1 2 3.5"),
     ?assertEqual(3.5, Res).
+
+should_support_addition_test() ->
+    Res = calculator:calculate("1 2 +"),
+    ?assertEqual(3.0, Res).

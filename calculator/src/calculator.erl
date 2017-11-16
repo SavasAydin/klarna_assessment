@@ -7,11 +7,21 @@ calculate(Expression) ->
     Tokens = string:tokens(Expression, " "),
     case contains_operation(Tokens) of
 	false ->
-	    last(Tokens)
+	    last(Tokens);
+	true ->
+	    calculate(Tokens, [])
     end.
 
 last(Tokens) ->
     to_float(lists:last(Tokens)).
+
+
+calculate([], [Res]) ->
+    Res;
+calculate(["+" | T], [Last, Previous]) ->
+    calculate(T, [Previous + Last]);
+calculate([N | T], Acc) ->
+    calculate(T, [to_float(N) | Acc]).
 
 to_float(Str) ->
     case lists:member($., Str) of
