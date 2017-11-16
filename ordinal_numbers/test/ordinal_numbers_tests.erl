@@ -32,3 +32,7 @@ convert_21_to_21st_test() ->
 convert_32_to_32nd_test() ->
     Res = ordinal_numbers:to_ordinal(32),
     ?assertEqual("32nd", Res).
+
+convert_43_to_43rd_test() ->
+    Res = ordinal_numbers:to_ordinal(43),
+    ?assertEqual("43rd", Res).
