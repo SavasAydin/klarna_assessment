@@ -20,3 +20,7 @@ should_support_addition_test() ->
 should_support_multiplication_test() ->
     Res = calculator:calculate("1 2 *"),
     ?assertEqual(2.0, Res).
+
+should_support_subtraction_test() ->
+    Res = calculator:calculate("1 2 -"),
+    ?assertEqual(-1.0, Res).

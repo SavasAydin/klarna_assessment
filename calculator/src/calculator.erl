@@ -22,6 +22,8 @@ calculate(["+" | T], [Last, Previous]) ->
     calculate(T, [Previous + Last]);
 calculate(["*" | T], [Last, Previous]) ->
     calculate(T, [Previous * Last]);
+calculate(["-" | T], [Last, Previous]) ->
+    calculate(T, [Previous - Last]);
 calculate([N | T], Acc) ->
     calculate(T, [to_float(N) | Acc]).
 
