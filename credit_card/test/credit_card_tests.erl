@@ -25,3 +25,8 @@ should_not_mask_non_digits_of_standard_credit_cards_test() ->
     CreditCard = "4556-3646-0793-5616",
     Res = credit_card:maskify(CreditCard),
     ?assertEqual("4###-####-####-5616", Res).
+
+should_not_mask_non_credit_cards_test() ->
+    CreditCard = "Not a credit card",
+    Res = credit_card:maskify(CreditCard),
+    ?assertEqual(CreditCard, Res).
