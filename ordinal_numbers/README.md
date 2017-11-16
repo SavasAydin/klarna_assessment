@@ -24,6 +24,9 @@ rd is used with numbers ending in 3 (e.g. 33rd, pronounced thirty-third)
 th is used for all other numbers (e.g. 9th, pronounced ninth).  
 ```
 
+Note that according to task description, an exception to the rules above  
+when a number ends with 11, 12 or 13 is ignored.
+
 # Build
     $ rebar3 compile
 
