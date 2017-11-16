@@ -1,6 +1,8 @@
 -module(calculator).
 -export([calculate/1]).
 
+-define(OPERATIONS, ["+", "-", "*", "/"]).
+
 calculate("") ->
     0;
 calculate(Expression) ->
@@ -18,16 +20,20 @@ last(Tokens) ->
 
 calculate([], [Res]) ->
     Res;
-calculate(["+" | T], [Last, Previous | Acc]) ->
-    calculate(T, [Previous + Last | Acc]);
-calculate(["*" | T], [Last, Previous | Acc]) ->
-    calculate(T, [Previous * Last | Acc]);
-calculate(["-" | T], [Last, Previous | Acc]) ->
-    calculate(T, [Previous - Last | Acc]);
-calculate(["/" | T], [Last, Previous | Acc]) ->
-    calculate(T, [Previous / Last | Acc]);
-calculate([N | T], Acc) ->
-    calculate(T, [to_float(N) | Acc]).
+calculate([H| T], Acc) ->
+    NewAcc = evaluate(H, Acc),
+    calculate(T, NewAcc).
+
+evaluate("+", [Last, Previous | T]) ->
+    [Previous + Last | T];
+evaluate("*", [Last, Previous | T]) ->
+    [Previous * Last | T];
+evaluate("-", [Last, Previous | T]) ->
+    [Previous - Last | T];
+evaluate("/", [Last, Previous | T]) ->
+    [Previous / Last | T];
+evaluate(X, L) ->
+    [to_float(X) | L].
 
 to_float(Str) ->
     case lists:member($., Str) of
@@ -38,5 +44,4 @@ to_float(Str) ->
     end.
 
 contains_operation(L) ->
-    Operations = ["+", "-", "*", "/"],
-    lists:any(fun(X) -> lists:member(X, Operations) end, L).
+    lists:any(fun(X) -> lists:member(X, ?OPERATIONS) end, L).
