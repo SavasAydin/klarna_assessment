@@ -4,4 +4,6 @@
 to_ordinal(0) ->
     "0";
 to_ordinal(1) ->
-    "1st".
+    "1st";
+to_ordinal(2) ->
+    "2nd".
