@@ -2,4 +2,6 @@
 -export([maskify/1]).
 
 maskify("")  ->
-    "".
+    "";
+maskify(CreditCard) when length(CreditCard) < 6 ->
+    CreditCard.
