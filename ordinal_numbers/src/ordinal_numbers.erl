@@ -9,5 +9,8 @@ to_ordinal(2) ->
     "2nd";
 to_ordinal(3) ->
     "3rd";
+to_ordinal(N) when N < 10 ->
+    integer_to_list(N) ++ "th";
 to_ordinal(N) ->
-    integer_to_list(N) ++ "th".
+    Quotient = N div 10,
+    integer_to_list(Quotient) ++ to_ordinal(N - Quotient * 10).
