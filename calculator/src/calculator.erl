@@ -18,14 +18,14 @@ last(Tokens) ->
 
 calculate([], [Res]) ->
     Res;
-calculate(["+" | T], [Last, Previous]) ->
-    calculate(T, [Previous + Last]);
-calculate(["*" | T], [Last, Previous]) ->
-    calculate(T, [Previous * Last]);
-calculate(["-" | T], [Last, Previous]) ->
-    calculate(T, [Previous - Last]);
-calculate(["/" | T], [Last, Previous]) ->
-    calculate(T, [Previous / Last]);
+calculate(["+" | T], [Last, Previous | Acc]) ->
+    calculate(T, [Previous + Last | Acc]);
+calculate(["*" | T], [Last, Previous | Acc]) ->
+    calculate(T, [Previous * Last | Acc]);
+calculate(["-" | T], [Last, Previous | Acc]) ->
+    calculate(T, [Previous - Last | Acc]);
+calculate(["/" | T], [Last, Previous | Acc]) ->
+    calculate(T, [Previous / Last | Acc]);
 calculate([N | T], Acc) ->
     calculate(T, [to_float(N) | Acc]).
 
