@@ -24,3 +24,7 @@ should_support_multiplication_test() ->
 should_support_subtraction_test() ->
     Res = calculator:calculate("1 2 -"),
     ?assertEqual(-1.0, Res).
+
+should_support_division_test() ->
+    Res = calculator:calculate("4 2 /"),
+    ?assertEqual(2.0, Res).
