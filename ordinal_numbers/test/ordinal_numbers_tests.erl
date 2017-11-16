@@ -40,3 +40,7 @@ convert_43_to_43rd_test() ->
 convert_100_to_100th_test() ->
     Res = ordinal_numbers:to_ordinal(100),
     ?assertEqual("100th", Res).
+
+convert_10000_to_10000th_test() ->
+    Res = ordinal_numbers:to_ordinal(10000),
+    ?assertEqual("10000th", Res).
