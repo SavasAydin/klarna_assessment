@@ -14,7 +14,12 @@ last(Tokens) ->
     to_float(lists:last(Tokens)).
 
 to_float(Str) ->
-    float(list_to_integer(Str)).
+    case lists:member($., Str) of
+	true ->
+	    list_to_float(Str);
+	false ->
+	    float(list_to_integer(Str))
+    end.
 
 contains_operation(L) ->
     Operations = ["+", "-", "*", "/"],
